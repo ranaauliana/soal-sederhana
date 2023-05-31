@@ -1,26 +1,43 @@
 function date(input) {
-  let month = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "Mei",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Okt",
+  let date = [
+    { month: "Jan", day: 31 },
+    { month: "Feb", day: 28 },
+    { month: "Mar", day: 31 },
+    { month: "Apr", day: 30 },
   ];
 
-  let monthIndex = input.slice(5, 7);
-  let day = input.slice(8, 10);
-  let year = input.slice(0, 4);
-  let hour = input.slice(-8, -3);
+  if (input != "") {
+    if (input.split(" ").length < 2) return "error";
+    // waktu
+    let time = input.split(" ")[1];
+    let hour = time.split(":");
 
-  return `${day} ${month[Number(monthIndex)]} ${year} Pukul ${hour}`;
+    // tanggal
+    let dates = input.split(" ")[0];
+    let tggl = dates.split("-");
+
+    // index bulan
+    let index = Number(tggl[1]) - 1;
+
+    if (
+      !date[index] ||
+      date[index]["day"] < Number(tggl[2]) ||
+      Number(tggl[0]) > 2023 ||
+      Number(tggl[0]) < 2010 ||
+      Number(hour[0] > 24) ||
+      Number(hour[1] > 59) ||
+      Number(hour[2] > 59)
+    ) {
+      return "error";
+    }
+
+    return `${tggl[2]} ${date[index]["month"]} ${tggl[0]} Pukul ${time}`;
+  } else {
+    return "kosong";
+  }
 }
 
-let result = date("2023-05-20 01:44:09");
+let result = date("20-23-20");
 console.log(result);
 
 // function date(input) {
