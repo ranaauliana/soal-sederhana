@@ -6,6 +6,6 @@ function convert tanggal dan waktu
 
 function penyusun halaman
 
-## jumlah Karakter
+## Jumlah Karakter
 
 function pemotong kalimat dengan jumlah karakter yang ditentukan
