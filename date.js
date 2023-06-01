@@ -4,6 +4,14 @@ function date(input) {
     { month: "Feb", day: 28 },
     { month: "Mar", day: 31 },
     { month: "Apr", day: 30 },
+    { month: "Mei", day: 31 },
+    { month: "Jun", day: 30 },
+    { month: "Jul", day: 31 },
+    { month: "Aug", day: 31 },
+    { month: "Sep", day: 30 },
+    { month: "Oct", day: 31 },
+    { month: "Nov", day: 30 },
+    { month: "Dec", day: 31 },
   ];
 
   if (input != "") {
@@ -24,7 +32,7 @@ function date(input) {
       date[index]["day"] < Number(tggl[2]) ||
       Number(tggl[0]) > 2023 ||
       Number(tggl[0]) < 2010 ||
-      Number(hour[0] > 24) ||
+      Number(hour[0] > 23) ||
       Number(hour[1] > 59) ||
       Number(hour[2] > 59)
     ) {
@@ -37,7 +45,7 @@ function date(input) {
   }
 }
 
-let result = date("20-23-20");
+let result = date("2023-12-31 23:59:59");
 console.log(result);
 
 // function date(input) {
